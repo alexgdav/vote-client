@@ -8,6 +8,12 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import Subject from '../Subjects/Subject.js'
+import Subjects from '../Subjects/Subjects.js'
+import SubjectCreate from '../Subjects/SubjectCreate.js'
+import SubjectEdit from '../Subjects/SubjectEdit.js'
+import ChoiceCreate from '../Choices/ChoiceCreate.js'
+import Choices from '../Choices/Choices.js'
 
 class App extends Component {
   constructor () {
@@ -53,6 +59,24 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/subjects' render={() => (
+            <Subjects alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/subjects/:id' render={() => (
+            <Subject alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/create-subject' render={() => (
+            <SubjectCreate alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/subjects/:id/edit' render={() => (
+            <SubjectEdit alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/choices' render={() => (
+            <Choices alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/subjects/:id/create-choice' render={() => (
+            <ChoiceCreate alert={this.alert} user={user} />
           )} />
         </main>
       </Fragment>
