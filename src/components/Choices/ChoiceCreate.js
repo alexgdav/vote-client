@@ -5,8 +5,8 @@ import apiUrl from '../../apiConfig'
 import ChoiceForm from './ChoiceForm.js'
 
 const ChoiceCreate = props => {
-  const [choice, setChoice] = useState({ subject_id: '', name: '', description: '' })
-  const subjectId = props.match.params.id
+  const [choice, setChoice] = useState({ subject_id: '', name: '', description: '', vote: '' })
+  choice.subject_id = props.match.params.id
 
   const handleChange = event => {
     event.persist()
@@ -34,7 +34,6 @@ const ChoiceCreate = props => {
   return (
     <div className="choice-board">
       <ChoiceForm
-        subjectId={subjectId}
         choice={choice}
         handleChange={handleChange}
         handleSubmit={handleSubmit}

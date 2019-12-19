@@ -13,7 +13,6 @@ const ChoiceForm = ({ subjectId, choice, handleSubmit, handleChange, cancelPath 
           <Form.Control
             required
             type="text"
-            placeholder={subjectId}
             value={choice.subject_id}
             name="subject_id"
             onChange={handleChange}
@@ -37,6 +36,16 @@ const ChoiceForm = ({ subjectId, choice, handleSubmit, handleChange, cancelPath 
             placeholder="Category..."
             value={choice.description}
             name="description"
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Vote</Form.Label>
+          <Form.Control
+            required
+            placeholder="Vote..."
+            value={choice.vote}
+            name="vote"
             onChange={handleChange}
           />
         </Form.Group>

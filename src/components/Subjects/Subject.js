@@ -8,6 +8,8 @@ import apiUrl from '../../apiConfig'
 const Subject = props => {
   const [subject, setSubject] = useState(null)
   const userId = props.user ? props.user_id : null
+  // const [choice, setChoice] = useState({ subject_id: '', name: '', description: '', vote: '' })
+  // const [updated, setUpdated] = useState(false)
 
   useEffect(() => {
     axios({
@@ -46,17 +48,22 @@ const Subject = props => {
 
   const choicesJsx = subject.choices.map(choice => (
     <div key={choice.id}>
-      <p>{choice.name} : {choice.description}</p>
+      <h4>{choice.name} : {choice.description} - {choice.vote} -</h4>
+      <Button href={`#subjects/${props.match.params.id}/edit-choice`} choice={choice} variant="danger" className="mr-2">Vote</Button>
     </div>
   ))
 
+  // const addVote = subject.choices.map(choice => (
+  //   choice.vote += 1
+  // ))
+
   return (
     <div className="subject-board">
-      <h2>Title: {subject.title}</h2>
-      <h2>Description: {subject.description}</h2>
-      <h2>ID: {subject.id}</h2>
-      <h2>User: {subject.user.email}</h2>
-      <h2>Choices: {choicesJsx}</h2>
+      <h1>Title: {subject.title}</h1>
+      <h3>Description: {subject.description}</h3>
+      <h3>ID: {subject.id}</h3>
+      <h3>User: {subject.user.email}</h3>
+      <h2 style={{ textAlign: 'center' }}>Choices: {choicesJsx}</h2>
       <div>
         <Button href={`#subjects/${props.match.params.id}/edit`} variant="primary" className="mr-2">Update</Button>
         {userId === subject.user_id && <Button onClick={handleDelete} className="btn btn-danger">delete</Button>}

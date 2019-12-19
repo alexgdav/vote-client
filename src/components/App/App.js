@@ -14,6 +14,7 @@ import SubjectCreate from '../Subjects/SubjectCreate.js'
 import SubjectEdit from '../Subjects/SubjectEdit.js'
 import ChoiceCreate from '../Choices/ChoiceCreate.js'
 import Choices from '../Choices/Choices.js'
+import ChoiceEdit from '../Choices/ChoiceEdit.js'
 
 class App extends Component {
   constructor () {
@@ -77,6 +78,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/subjects/:id/create-choice' render={() => (
             <ChoiceCreate alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/subjects/:id/edit-choice' render={() => (
+            <ChoiceEdit alert={this.alert} user={user} />
           )} />
         </main>
       </Fragment>
