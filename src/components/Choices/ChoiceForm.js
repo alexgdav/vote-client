@@ -4,26 +4,25 @@ import { Link, withRouter } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-const ChoiceForm = ({ subjectId, choice, handleSubmit, handleChange, cancelPath }) => (
+const ChoiceForm = ({ props, subjectId, choice, handleSubmit, handleChange, cancelPath }) => (
   <div className="subject-board row">
     <div className="col-sm-10 col-md-8 mx-auto mt-5">
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Label htmlFor="content">Title</Form.Label>
+          <Form.Label htmlFor="content">Subject_id</Form.Label>
           <Form.Control
             required
             type="text"
-            value={choice.subject_id}
+            value={props.match.params.id}
             name="subject_id"
             onChange={handleChange}
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label htmlFor="content">Title</Form.Label>
+          <Form.Label htmlFor="content">Name</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="Name..."
             value={choice.name}
             name="name"
             onChange={handleChange}

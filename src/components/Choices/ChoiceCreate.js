@@ -34,6 +34,7 @@ const ChoiceCreate = props => {
   return (
     <div className="choice-board">
       <ChoiceForm
+        props={props}
         choice={choice}
         handleChange={handleChange}
         handleSubmit={handleSubmit}

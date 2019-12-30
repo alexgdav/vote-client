@@ -79,7 +79,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/subjects/:id/create-choice' render={() => (
             <ChoiceCreate alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/subjects/:id/edit-choice' render={() => (
+          <AuthenticatedRoute user={user} path='/subjects/:id/choices/:id/edit-choice' render={() => (
             <ChoiceEdit alert={this.alert} user={user} />
           )} />
         </main>
